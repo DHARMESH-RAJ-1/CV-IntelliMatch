@@ -4,4 +4,3 @@ pdfplumber
 sentence-transformers
 python-multipart
 openai
-torch
