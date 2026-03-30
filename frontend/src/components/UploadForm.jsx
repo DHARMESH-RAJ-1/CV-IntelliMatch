@@ -26,7 +26,7 @@ function UploadForm({ setResult }) {
     formData.append("resume", file);
     formData.append("job_description", jd);
     try {
-      const res = await axios.post("http://127.0.0.1:8000/analyze/", formData);
+      const res = await axios.post("https://cv-intellimatch.onrender.com/analyze/", formData);
       setResult(res.data);
     } catch (err) {
       console.error(err);

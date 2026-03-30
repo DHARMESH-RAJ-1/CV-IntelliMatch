@@ -114,7 +114,7 @@ function Result({ data }) {
     setInfo(null);
     try {
       const res = await axios.get(
-        `http://127.0.0.1:8000/analyze/keyword-info?keyword=${keyword}`
+        `https://cv-intellimatch.onrender.com/analyze/keyword-info?keyword=${keyword}`
       );
       setInfo(res.data);
     } catch (err) {
