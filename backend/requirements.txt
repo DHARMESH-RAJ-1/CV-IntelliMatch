@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 pdfplumber
-sentence-transformers
 python-multipart
 openai
+scikit-learn
+numpy

@@ -1,8 +1,7 @@
-from sentence_transformers import SentenceTransformer, util
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
-
-def compute_similarity(resume, jd):
-    emb1 = model.encode(resume, convert_to_tensor=True)
-    emb2 = model.encode(jd, convert_to_tensor=True)
-    return float(util.cos_sim(emb1, emb2)[0][0])
+def compute_similarity(resume_text, jd_text):
+    vectorizer = TfidfVectorizer()
+    vectors = vectorizer.fit_transform([resume_text, jd_text])
+    return cosine_similarity(vectors[0], vectors[1])[0][0]
