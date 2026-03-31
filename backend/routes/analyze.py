@@ -23,7 +23,7 @@ async def analyze_resume(
     jd_keywords = extract_keywords(jd_text)
 
     # Missing keywords
-    missing_keywords = list(set(jd_keywords) - set(resume_keywords))
+    missing_keywords = list(set(jd_keywords) - set(resume_keywords))[:10]
 
     # Similarity
     similarity = compute_similarity(resume_text, jd_text)

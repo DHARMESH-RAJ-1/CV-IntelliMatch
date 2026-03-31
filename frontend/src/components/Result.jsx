@@ -79,23 +79,41 @@ function KeywordInfo({ info, loading }) {
   if (!info) return null;
 
   return (
-    <div className="info-panel">
-      <div className="info-panel-header">
-        <h3 className="info-keyword-name">{info.keyword}</h3>
-        <span className="info-keyword-tag">Missing Skill</span>
-      </div>
-      <p className="info-explanation">{info.explanation}</p>
-      <div className="info-questions-title">Interview questions to prepare</div>
-      <ul className="info-questions">
-        {info.questions.map((q, i) => (
-          <li key={i} className="info-question">
-            <span className="info-question-num">Q{i + 1}</span>
-            <span>{q}</span>
-          </li>
-        ))}
-      </ul>
+  <div className="info-panel">
+    <div className="info-panel-header">
+      <h3 className="info-keyword-name">{info.keyword}</h3>
+      <span className="info-keyword-tag">Missing Skill</span>
     </div>
-  );
+
+    {/* Explanation with formatting */}
+    <p className="info-explanation" style={{ whiteSpace: "pre-line" }}>
+      {info.explanation}
+    </p>
+
+    <div className="info-questions-title">
+      Interview Questions & Answers
+    </div>
+
+    <ul className="info-questions">
+      {info.questions.map((q, i) => (
+        <li key={i} className="info-question">
+          
+          {/* Question */}
+          <div className="info-question-header">
+            <span className="info-question-num">Q{i + 1}</span>
+            <strong>{q.q}</strong>
+          </div>
+
+          {/* Answer */}
+          <p className="info-answer">
+            {q.a}
+          </p>
+
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 }
 
 function Result({ data }) {
